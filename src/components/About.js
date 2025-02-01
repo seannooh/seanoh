@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
     return (
         <div className="about" id="about">
-            <img src="/images/me.jpg" alt="pic" className="profile-pic"/>
+            <img src={`${process.env.PUBLIC_URL}/images/me.jpg`} alt="pic" className="profile-pic"/>
             <div className="about-left">
                 <h2>About Me</h2>
                 <p className="paragraph">

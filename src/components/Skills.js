@@ -2,14 +2,14 @@ import React from "react";
 
 export default function Skills() {
     const skills = [
-        { name: "HTML", logo: "/images/language_logo/htmllogo.png"},
-        { name: "JavaScript", logo: "/images/language_logo/javascriptlogo.png"},
-        { name: "CSS", logo: "/images/language_logo/csslogo.png"},
-        { name: "PHP", logo: "/images/language_logo/phplogo.png"},
-        { name: "MySQL", logo: "/images/language_logo/mysqllogo.png"},
-        { name: "React", logo: "/images/language_logo/reactlogo.png"},
-        { name: "Node.js", logo: "/images/language_logo/nodejslogo.png"},
-        { name: "Java", logo: "/images/language_logo/javalogo.png"},
+        { name: "HTML", logo: `${process.env.PUBLIC_URL}/images/language_logo/htmllogo.png` },
+        { name: "JavaScript", logo: `${process.env.PUBLIC_URL}/images/language_logo/javascriptlogo.png` },
+        { name: "CSS", logo: `${process.env.PUBLIC_URL}/images/language_logo/csslogo.png` },
+        { name: "PHP", logo: `${process.env.PUBLIC_URL}/images/language_logo/phplogo.png` },
+        { name: "MySQL", logo: `${process.env.PUBLIC_URL}/images/language_logo/mysqllogo.png` },
+        { name: "React", logo: `${process.env.PUBLIC_URL}/images/language_logo/reactlogo.png` },
+        { name: "Node.js", logo: `${process.env.PUBLIC_URL}/images/language_logo/nodejslogo.png` },
+        { name: "Java", logo: `${process.env.PUBLIC_URL}/images/language_logo/javalogo.png` },
     ];
 
     return (

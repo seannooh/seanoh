@@ -19,7 +19,7 @@ export default function Bar() {
                     target="_blank"
                     rel="nopener noreferrer"    
                 >
-                <img src="/images/linkedinlogo.png" alt="LinkedIn"/>
+                <img src={`${process.env.PUBLIC_URL}/images/linkedinlogo.png`} alt="LinkedIn"/>
                 </a>
             </div>
         </div>

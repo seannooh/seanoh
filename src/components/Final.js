@@ -8,7 +8,7 @@ export default function Footer() {
                 target="_blank"
                 rel="nopener noreferrer"
             >
-                <img src="/images/linkedinlogo.png" alt="LinkedIn" style={{ width:"30px", height: "30px"}}/>
+                <img src={`${process.env.PUBLIC_URL}/images/linkedinlogo.png`} alt="LinkedIn" style={{ width:"30px", height: "30px"}}/>
             </a>
         </footer>
     );
