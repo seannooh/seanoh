@@ -7,7 +7,7 @@ body {
     padding: 0;
     margin: 0;
     overflow-x: hidden;
-    background: linear-gradient(to bottom, #D6B588, #556b2f);
+    background: linear-gradient(to bottom, #220b34, #1c90bf, #195dba);
   }
 
   /**********************************/
@@ -42,7 +42,7 @@ body {
     text-align: left;
     display: inline-block;
     white-space: nowrap;
-    color: #556b2f;
+    color: #007bff;
   }
   .bar p {
     margin: 0.5px;
@@ -115,7 +115,7 @@ body {
     margin-bottom: 20px;
     object-fit: cover;
     border-radius: 20px;
-    border: 5px solid #556b2f;
+    border: 3px solid #fffffa;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
   }
   .profile-pic:hover {
@@ -191,7 +191,8 @@ body {
       height: 100px;
       object-fit: contain;
       margin-bottom: 8px;
-      background-color: #40434e;
+      background-color: #fffffa;
+      border: 5px solid #fffffa;
       border-radius: 20%;
   }
   .skill-card p {
@@ -224,7 +225,7 @@ body {
     transform: scale(1.05);
   }
   .card {
-    background-color: #40434e;
+    background-color: #1c90bf;
     padding: 20px;
     margin-top: 20px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
@@ -251,7 +252,7 @@ body {
   }
   .language {
     display: inline-block;
-    background: #007bff;
+    background: #195dba;
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
@@ -298,7 +299,7 @@ body {
     /**********************************/
 
   footer {
-    background-color: #080705;
+    background-color: #220b34;
     padding: 20px;
     text-align: center;
   }
