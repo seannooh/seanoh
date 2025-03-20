@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/seanoh/static/css/main.bbd2ffa9.css",
+    "main.css": "/seanoh/static/css/main.f131bc66.css",
     "main.js": "/seanoh/static/js/main.b72cb8ce.js",
     "static/js/453.ed3810f9.chunk.js": "/seanoh/static/js/453.ed3810f9.chunk.js",
     "static/media/dark-blue-paint-minimal-background.jpg": "/seanoh/static/media/dark-blue-paint-minimal-background.e98f6ff0d180e91bb6de.jpg",
     "index.html": "/seanoh/index.html",
-    "main.bbd2ffa9.css.map": "/seanoh/static/css/main.bbd2ffa9.css.map",
+    "main.f131bc66.css.map": "/seanoh/static/css/main.f131bc66.css.map",
     "main.b72cb8ce.js.map": "/seanoh/static/js/main.b72cb8ce.js.map",
     "453.ed3810f9.chunk.js.map": "/seanoh/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bbd2ffa9.css",
+    "static/css/main.f131bc66.css",
     "static/js/main.b72cb8ce.js"
   ]
 }
