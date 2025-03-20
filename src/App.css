@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 /*https://coolors.co/palette/080705-40434e-702632-912f40-fffffa*/
 
-body {
+html, body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   padding: 0;
@@ -31,7 +31,6 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-
   }
   .text-container {
     display: flex;
@@ -82,6 +81,15 @@ body {
     background-color: #fffffa;
     border-radius: 20%;
   }
+  @media (max-width: 600px) {
+    .navigation a {
+      font-size: 14px;
+    }
+    .bar img {
+      width: 20px;
+      height: 20px;
+    }
+  }  
   
     /**********************************/
 
