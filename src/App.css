@@ -255,6 +255,10 @@ html, body {
     transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   .card h3 {
     font-size: 1.5rem;
     color: #fffffa;
@@ -315,6 +319,9 @@ html, body {
     background-color: #080705;
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
   footer p {
     margin: 0;

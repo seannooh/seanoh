@@ -10,6 +10,13 @@ export default function Footer() {
             >
                 <img src={`${process.env.PUBLIC_URL}/images/linkedinlogo.png`} alt="LinkedIn" style={{ width:"30px", height: "30px"}}/>
             </a>
+            <a
+                href="https://github.com/seannooh"
+                target="_blank"
+                rel="nopener noreferrer"
+            >
+                <img src={`${process.env.PUBLIC_URL}/images/githublogo.png`} alt="LinkedIn" style={{ width:"30px", height: "30px"}}/>
+            </a>
         </footer>
     );
 }
