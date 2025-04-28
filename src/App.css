@@ -238,6 +238,11 @@ html, body {
     transition: 0.3s ease;
     transform: scale(1.05);
   }
+  .card-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }  
   .card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
