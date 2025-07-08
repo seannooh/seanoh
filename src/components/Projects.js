@@ -15,21 +15,23 @@ export default function Projects() {
                         </p>
                         <div>
                             <p className="language">React</p>
+                            <p className="language">CSS</p>
                             <p className="language">NodeJS</p>
                         </div>
                     </div>
                 </a>
-                <div className="card">
-                    <h3>Calculator</h3>
+                <a href="https://github.com/seannooh/moviesearchapp" target="_blank" rel="noopener noreferrer">
+                    <div className="card">
+                    <h3>Movie App</h3>
                     <p>
-                        Simple calculator.
+                        Frontend project that allows users to search for movies by title and view detailed information. Built using the OMDb API to fetch real-time movie data.
                     </p>
                     <div>
-                        <p className="language">HTML</p>
-                        <p className="language">JavaScript</p>
+                        <p className="language">React</p>
                         <p className="language">CSS</p>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     );
