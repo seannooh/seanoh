@@ -11,10 +11,9 @@ export default function About() {
                     frontend development. I am committed to creating 
                     dynamic user interfaces and motivated to continue
                     exploring and learning more about web development.
-                    Currently, I am completing my senior year at the 
-                    University of Redlands, where I am pursuing a BS in
-                    Computer Science and a minor in Mathematics, with
-                    plans to graduate in April 2025. 
+                    Currently, I am a recent grad from the 
+                    University of Redlands, where I obtained a BS in
+                    Computer Science and a minor in Mathematics, graduating in April 2025. 
 
                 </p>
             </div>
