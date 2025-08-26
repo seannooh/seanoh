@@ -32,6 +32,18 @@ export default function Projects() {
                     </div>
                 </div>
                 </a>
+                <a href="https://github.com/seannooh/nfl-team-app" target="_blank" rel="noopener noreferrer">
+                    <div className="card">
+                        <h3>NFL Team Builder App</h3>
+                        <p>
+                            Frontend project where users can build their NFL team! Inspired from Snapchat and TikTok filters.
+                        </p>
+                        <div>
+                            <p className="language">React</p>
+                            <p className="language">CSS</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     );
