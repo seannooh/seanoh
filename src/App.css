@@ -8,7 +8,8 @@ html, body {
   margin: 0;
   overflow-x: hidden;
   /* https://www.freepik.com/free-photo/dark-blue-paint-minimal-background_15554692.htm?sign-up=email#fromView=keyword&page=2&position=18&uuid=583dd36f-3607-4927-aa16-91bc0eda13ec&query=Portfolio+Background */
-  background-image: url("/public/images/dark-blue-paint-minimal-background.jpg");
+  background-image: url("/public/images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg");
+  /* background-image: url("/public/images/dark-blue-paint-minimal-background.jpg"); */
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
