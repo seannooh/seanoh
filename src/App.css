@@ -83,8 +83,14 @@ html, body {
     border-radius: 20%;
   }
   @media (max-width: 600px) {
+    .bar h1 {
+      font-size: 12px;
+    }
+    .bar p {
+      font-size: 10px;
+    }
     .navigation a {
-      font-size: 14px;
+      font-size: 10px;
     }
     .bar img {
       width: 20px;
@@ -163,6 +169,11 @@ html, body {
       box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     }
   }
+  @media (min-width:400px) {
+    .paragraph {
+      font-size: 16px;
+    }
+  }
 
     /**********************************/
 
@@ -174,6 +185,8 @@ html, body {
     width: 100%;
     padding-top: 80px;
     padding-bottom: 80px;
+    margin: 0;
+    box-sizing: border-box;
   }
   .skills h1 {
     padding: 20px;
@@ -219,17 +232,31 @@ html, body {
     transition: 0.3s ease;
     transform: scale(1.2);
   }
+  @media (max-width: 600px) {
+  .skills-grid {
+    gap: 20px; 
+  }
+  .skill-card {
+    padding: 6px; 
+  }
+  .skill-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .skill-card p {
+    font-size: 12px; 
+  }
+}
 
-  
     /**********************************/
 
   .projects {
     padding: 40px;
     text-align: center;
-    height: 100vh;
     padding-top: 80px;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
   }
   .projects h2 {
     font-size: 2rem;
