@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/seanoh/static/css/main.8ed71747.css",
+    "main.css": "/seanoh/static/css/main.fa4f1937.css",
     "main.js": "/seanoh/static/js/main.9715e233.js",
     "static/js/453.ed3810f9.chunk.js": "/seanoh/static/js/453.ed3810f9.chunk.js",
-    "static/media/dark-blue-paint-minimal-background.jpg": "/seanoh/static/media/dark-blue-paint-minimal-background.e98f6ff0d180e91bb6de.jpg",
+    "static/media/jeremy-bishop-G9i_plbfDgk-unsplash.jpg": "/seanoh/static/media/jeremy-bishop-G9i_plbfDgk-unsplash.2e14ed2d36e10e6569ff.jpg",
     "index.html": "/seanoh/index.html",
-    "main.8ed71747.css.map": "/seanoh/static/css/main.8ed71747.css.map",
+    "main.fa4f1937.css.map": "/seanoh/static/css/main.fa4f1937.css.map",
     "main.9715e233.js.map": "/seanoh/static/js/main.9715e233.js.map",
     "453.ed3810f9.chunk.js.map": "/seanoh/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ed71747.css",
+    "static/css/main.fa4f1937.css",
     "static/js/main.9715e233.js"
   ]
 }
