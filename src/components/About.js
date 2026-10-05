@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div className="about" id="about">
             <div className="about-left">
-                <img src={`${process.env.PUBLIC_URL}/images/me-ffm.jpg`} alt="pic" className="profile-pic"/>
+                <img src={`${process.env.PUBLIC_URL}/images/seanoh2026_square.jpg`} alt="pic" className="profile-pic"/>
             </div>
             <div className="about-right">
                 <h2>About Me</h2>

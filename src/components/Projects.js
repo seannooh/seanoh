@@ -63,7 +63,7 @@ export default function Projects() {
                         </div>
                     </div>
                 </a>
-                <a href="https://kommunity.reachsites.co/" target="_blank" rel="noopener noreferrer">
+                <a href="https://kommunityfitness.com/" target="_blank" rel="noopener noreferrer">
                     <div className="card">
                         <h3>Kommunity</h3>
                         <p>

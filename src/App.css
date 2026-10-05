@@ -7,9 +7,7 @@ html, body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  /* https://www.freepik.com/free-photo/dark-blue-paint-minimal-background_15554692.htm?sign-up=email#fromView=keyword&page=2&position=18&uuid=583dd36f-3607-4927-aa16-91bc0eda13ec&query=Portfolio+Background */
-  background-image: url("/public/images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg");
-  /* background-image: url("/public/images/dark-blue-paint-minimal-background.jpg"); */
+  background-image: url("/public/images/MoodyGlassmorphismGradientBackground.png");
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -130,7 +128,7 @@ html, body {
   }
 }
   
-    /**********************************/
+  /**********************************/
 
   .about {
     padding: 3em;
@@ -139,7 +137,7 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 2em;
+    margin-top: 10vh;
   }
   .about h2 {
     font-size: 2em;
@@ -167,8 +165,7 @@ html, body {
     height: 150px;
     margin-bottom: 20px;
     object-fit: cover;
-    border-radius: 20px;
-    border: 3px solid #fffffa;
+    border: 3px solid #000000;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
   }
   .profile-pic:hover {
@@ -177,7 +174,7 @@ html, body {
     transform: scale(1.2);
   }
   .paragraph {
-    font-size: 1em;
+    font-size: 1rem;
     color: #fffffa;
     margin-top: 20px;
     text-align: center;
@@ -186,18 +183,18 @@ html, body {
     transition: 0.3s ease;
     transform: scale(1.05);
   }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .about {
       flex-direction: row;
       justify-content: space-around;
-      height: 100vh;
+      min-height: 100vh;
+      margin-top: none;
     }
     .profile-pic {
       width: 300px;
       height: 300px;
       margin-bottom: 20px;
       object-fit: cover;
-      border-radius: 20px;
       box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     }
     .about-left, 
@@ -207,7 +204,7 @@ html, body {
       padding: 5em;
     }
     .paragraph {
-      font-size: 1.5em;
+      font-size: 1em;
     }
   }
 
@@ -286,73 +283,90 @@ html, body {
 
     /**********************************/
 
-  .projects {
-    padding: 40px;
-    text-align: center;
-    padding-top: 80px;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  .projects h2 {
-    font-size: 2rem;
-    color: #fffffa;
-  }
-  .projects h2:hover {
-    transition: 0.3s ease;
-    transform: scale(1.05);
-  }
-  .card-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }  
-  .card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-    max-width: 500px;
-    margin: 50px auto;
-  }
-  .card:hover {
-    transform: translateY(-10px);
-    transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .card h3 {
-    font-size: 1.5rem;
-    color: #fffffa;
-  }
-  .card p {
-    color: #fffffa;
-    font-size: 1rem;
-  }
-  .language {
-    display: inline-block;
-    background: #195dba;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 5px;
-  }
-  @media (min-width: 768px) {
-    .card-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      gap: 20px;
+    .projects {
+      padding: 40px;
+      padding-top: 80px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
-  }
+    
+    .projects h2 {
+      font-size: 2rem;
+      color: #fffffa;
+    }
+    
+    .projects h2:hover {
+      transition: 0.3s ease;
+      transform: scale(1.05);
+    }
+    
+    .card-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      max-width: 500px;
+      margin: 50px auto;
+      min-height: 300px;
+      box-sizing: border-box;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .card h3 {
+      font-size: 1.5rem;
+      color: #fffffa;
+    }
+    
+    .card p {
+      color: #fffffa;
+      font-size: 1rem;
+    }
+    
+    .language {
+      display: inline-block;
+      background: #195dba;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 5px;
+    }
+    
+    @media (min-width: 768px) {
+      .card-container {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-evenly;
+        gap: 20px;
+      }
+    
+      .card {
+        flex: 1;
+        margin: 50px 0;
+      }
+    }    
   
     /**********************************/
 
