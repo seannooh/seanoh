@@ -15,13 +15,34 @@ export default function Skills() {
     return (
         <div className="skills" id="skills">
             <h1>Skills</h1>
-            <div className="skills-grid">
-                {skills.map((skill, index) => (
-                    <div className="skill-card" key={index}>
-                        <img src={skill.logo} alt={skill.name} className="skill-logo"></img>
-                        <p>{skill.name}</p>
-                    </div>
-                ))}
+
+            <div className="skills-marquee">
+                <div className="skills-track">
+
+                    {skills.map((skill, index) => (
+                        <div className="skill-card" key={index}>
+                            <img
+                                src={skill.logo}
+                                alt={skill.name}
+                                className="skill-logo"
+                            />
+                            <p>{skill.name}</p>
+                        </div>
+                    ))}
+
+                    {/* Duplicate for seamless scrolling */}
+                    {skills.map((skill, index) => (
+                        <div className="skill-card" key={`duplicate-${index}`}>
+                            <img
+                                src={skill.logo}
+                                alt={skill.name}
+                                className="skill-logo"
+                            />
+                            <p>{skill.name}</p>
+                        </div>
+                    ))}
+
+                </div>
             </div>
         </div>
     );
