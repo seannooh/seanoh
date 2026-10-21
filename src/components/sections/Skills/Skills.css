@@ -1,0 +1,97 @@
+/**********************************/
+/* SKILLS */
+/**********************************/
+
+.skills {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.skills th,
+.skills td {
+  padding: 0;
+  font-weight: inherit;
+  vertical-align: baseline;
+}
+
+.skills__head th {
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.skills__group th {
+  padding: var(--space-6) 0 var(--space-2);
+  color: var(--text-1);
+}
+
+.skills__row {
+  border-top: 1px solid var(--line);
+  transition: background-color var(--dur-respond) var(--ease);
+}
+
+.skills__row:hover {
+  background: var(--surface);
+}
+
+.skills__row th,
+.skills__row td {
+  padding-block: var(--space-3);
+}
+
+.skills__name {
+  width: 30%;
+  padding-right: var(--space-5);
+  color: var(--text-1);
+  font-weight: 500;
+}
+
+.skills__where {
+  color: var(--text-2);
+}
+
+.skills__count {
+  width: 4ch;
+  text-align: right;
+}
+
+.skills__row:hover .skills__count {
+  color: var(--accent);
+}
+
+/* Narrow screens: skill and count on one line, "used in" underneath. */
+@media (max-width: 599px) {
+  .skills__head th:nth-child(2) {
+    display: none;
+  }
+
+  .skills__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding-block: var(--space-3);
+  }
+
+  .skills__row th,
+  .skills__row td {
+    padding: 0;
+  }
+
+  .skills__name {
+    width: auto;
+  }
+
+  .skills__where {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .skills__count {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .skills__head tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+}

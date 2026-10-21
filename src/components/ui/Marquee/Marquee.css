@@ -1,0 +1,82 @@
+/**********************************/
+/* MARQUEE */
+/**********************************/
+
+.marquee {
+  margin-top: clamp(88px, 13vh, 150px);
+  padding-block: var(--space-6);
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+}
+
+.marquee:focus-visible {
+  outline-offset: -2px;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track,
+.marquee.is-offscreen .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  color: var(--text-3);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition: color var(--dur-respond) var(--ease);
+}
+
+/* Separator after every item, including the last, so the loop is seamless. */
+.marquee__item::after {
+  content: "";
+  width: 0.22em;
+  height: 0.22em;
+  margin-inline: 0.6em;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.marquee__item:hover {
+  color: var(--text-1);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Reduced motion: no scrolling; the list wraps and the duplicate is hidden. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    width: auto;
+    padding-inline: var(--gutter);
+    animation: none;
+  }
+
+  .marquee__list {
+    flex-wrap: wrap;
+  }
+
+  .marquee__list[aria-hidden] {
+    display: none;
+  }
+}

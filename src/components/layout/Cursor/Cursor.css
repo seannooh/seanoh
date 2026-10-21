@@ -1,0 +1,91 @@
+/**********************************/
+/* CURSOR */
+/**********************************/
+
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-respond) var(--ease);
+}
+
+.cursor.is-visible {
+  opacity: 1;
+}
+
+/* Wrappers are moved by script; the circles are drawn centred on them. */
+.cursor__ring,
+.cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cursor__ring::before,
+.cursor__dot::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor__ring::before {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--rule-strong);
+  transition:
+    width var(--dur-settle) var(--ease),
+    height var(--dur-settle) var(--ease),
+    border-color var(--dur-respond) var(--ease),
+    background-color var(--dur-respond) var(--ease),
+    opacity var(--dur-respond) var(--ease);
+}
+
+.cursor__dot::before {
+  width: 6px;
+  height: 6px;
+  background: var(--text-1);
+  transition: opacity var(--dur-respond) var(--ease);
+}
+
+/* Over links and buttons: the ring grows into a thin-film ring whose colors
+   swirl as the mouse moves. */
+.cursor.is-link .cursor__ring::before {
+  width: 52px;
+  height: 52px;
+  padding: 1.5px;
+  border-color: transparent;
+  background: conic-gradient(
+      from var(--iri-angle, 0deg),
+      var(--iri-1),
+      var(--iri-2),
+      var(--iri-3),
+      var(--iri-4),
+      var(--iri-1)
+    )
+    border-box;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.cursor.is-link .cursor__dot::before {
+  opacity: 0;
+}
+
+.cursor.is-pressed .cursor__ring::before {
+  width: 24px;
+  height: 24px;
+}
+
+/* Inside the hero glass the lens ring takes over (except over its buttons). */
+.cursor.is-lens:not(.is-link) .cursor__ring::before {
+  opacity: 0;
+}

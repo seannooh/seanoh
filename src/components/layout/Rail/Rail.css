@@ -1,0 +1,348 @@
+/**********************************/
+/* RAIL — SHARED */
+/**********************************/
+
+.rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.rail a {
+  text-decoration: none;
+}
+
+.rail__mark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-1);
+}
+
+.rail__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.rail__list,
+.rail__external {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail__link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  color: var(--text-2);
+  transition: color var(--dur-respond) var(--ease);
+}
+
+.rail__num {
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  color: var(--text-3);
+  transition: color var(--dur-respond) var(--ease);
+}
+
+.rail__link:hover,
+.rail__link.is-active {
+  color: var(--text-1);
+}
+
+.rail__link:hover .rail__num,
+.rail__link.is-active .rail__num {
+  color: var(--accent);
+}
+
+.rail__external {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.rail__external a {
+  font-size: var(--step-label);
+  font-weight: 500;
+}
+
+.rail__email {
+  font-family: var(--font-mono);
+  font-size: var(--step-data);
+}
+
+/* Theme toggle: in the rail footer on desktop, in the top bar otherwise. */
+.rail__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.rail__theme--rail {
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 1100px) {
+  .rail__theme--bar {
+    display: none;
+  }
+}
+
+@media (max-width: 1099px) {
+  .rail__theme--rail {
+    display: none;
+  }
+}
+
+.rail__email {
+  display: inline-block;
+  margin-top: var(--space-4);
+  color: var(--text-2);
+  word-break: break-all;
+}
+
+
+/**********************************/
+/* RAIL — DESKTOP */
+/**********************************/
+
+@media (min-width: 1100px) {
+  .rail {
+    bottom: 0;
+    width: var(--rail-w);
+    padding: var(--space-7) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--line);
+  }
+
+  /* The name block arrives once the hero's large name has scrolled away. */
+  .rail__mark {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity var(--dur-settle) var(--ease),
+      transform var(--dur-settle) var(--ease),
+      visibility 0s linear var(--dur-settle);
+  }
+
+  .rail.is-docked .rail__mark {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .rail__role {
+    margin-top: var(--space-2);
+  }
+
+  .rail__toggle {
+    display: none;
+  }
+
+  .rail__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: var(--space-9);
+  }
+
+  .rail__list {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .rail__label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  /* Progress through each chapter: full for read, live for the current one. */
+  .rail__track {
+    position: relative;
+    align-self: center;
+    width: 28px;
+    height: 1px;
+    margin-left: auto;
+    background: var(--line);
+    overflow: hidden;
+  }
+
+  .rail__fill {
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .rail__link.is-active .rail__fill {
+    transform: scaleX(var(--chapter-progress, 0));
+  }
+
+  .rail__link.is-read .rail__fill {
+    background: var(--text-3);
+    transform: scaleX(1);
+  }
+
+  .rail__external {
+    flex-direction: column;
+  }
+}
+
+
+/**********************************/
+/* RAIL — TABLET & MOBILE */
+/**********************************/
+
+@media (max-width: 1099px) {
+  .rail {
+    right: 0;
+  }
+
+  .rail__bar {
+    height: var(--bar-h);
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+    transition:
+      background-color var(--dur-settle) var(--ease),
+      border-color var(--dur-settle) var(--ease);
+  }
+
+  .rail.is-docked .rail__bar,
+  .rail.is-open .rail__bar {
+    background: var(--ground);
+    border-bottom-color: var(--line);
+  }
+
+  .rail__name {
+    font-size: 1.375rem;
+  }
+
+  .rail__role {
+    display: none;
+  }
+
+  .rail__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 44px;
+    padding: 0 var(--space-2);
+    margin-right: calc(var(--space-2) * -1);
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .rail__toggle .label {
+    color: var(--text-1);
+  }
+
+  /* Two lines that fold into an X. */
+  .rail__icon,
+  .rail__icon::before {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--text-1);
+    transition: transform var(--dur-settle) var(--ease);
+  }
+
+  .rail__icon {
+    position: relative;
+    transform: translateY(-3px);
+  }
+
+  .rail__icon::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+  }
+
+  .rail.is-open .rail__icon {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .rail.is-open .rail__icon::before {
+    transform: translateY(-6px) rotate(-90deg);
+  }
+
+  .rail__nav {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    padding: calc(var(--bar-h) + var(--space-7)) var(--gutter) var(--space-7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--ground);
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    transition:
+      opacity var(--dur-settle) var(--ease),
+      visibility 0s linear var(--dur-settle);
+  }
+
+  .rail.is-open .rail__nav {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .rail__list {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .rail__link {
+    gap: var(--space-4);
+    padding-block: var(--space-2);
+  }
+
+  .rail__label {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .rail__track {
+    display: none;
+  }
+
+  /* Menu items rise in, staggered, when the sheet opens. */
+  .rail__list li {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity var(--dur-settle) var(--ease),
+      transform var(--dur-settle) var(--ease);
+  }
+
+  .rail.is-open .rail__list li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rail.is-open .rail__list li:nth-child(2) { transition-delay: 40ms; }
+  .rail.is-open .rail__list li:nth-child(3) { transition-delay: 80ms; }
+  .rail.is-open .rail__list li:nth-child(4) { transition-delay: 120ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail__mark,
+  .rail__list li {
+    transform: none !important;
+  }
+}

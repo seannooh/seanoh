@@ -1,0 +1,92 @@
+/**********************************/
+/* IRIDESCENCE */
+/**********************************/
+
+/* Thin-film color for edges and surfaces that "catch the light". Opt in with
+   .iri on the element whose vars lib/iridescence.js updates (via the
+   useIridescent hook); the values below are the static look. */
+
+:root {
+  --iri-spectrum: var(--iri-1), var(--iri-2), var(--iri-3), var(--iri-4), var(--iri-1);
+}
+
+@property --iri-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 210deg;
+}
+
+.iri {
+  --iri-angle: 210deg;
+  --iri-x: 0;
+  --iri-y: 0;
+  --iri-px: 50%;
+  --iri-py: 0%;
+  --iri-s: 0.3;
+
+  transition: --iri-angle 400ms var(--ease);
+}
+
+/* Spectral 1px edge, brightest at the point nearest the cursor. */
+.iri-edge {
+  position: relative;
+}
+
+.iri-edge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(180px circle at var(--iri-px) var(--iri-py), var(--iri-glint), transparent 70%),
+    conic-gradient(from var(--iri-angle), var(--iri-spectrum));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: var(--iri-edge);
+  pointer-events: none;
+}
+
+/* Sheen: a thin-film wash that tracks the cursor in both directions. */
+.iri-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    calc(100deg + var(--iri-angle) * 0.15),
+    transparent 30%,
+    var(--iri-1) 40%,
+    var(--iri-2) 47%,
+    var(--iri-3) 54%,
+    var(--iri-4) 60%,
+    transparent 70%
+  );
+  background-size: 300% 300%;
+  background-position:
+    calc((0.2 + var(--iri-s) * 0.7 + var(--iri-x) * 0.5) * 100%)
+    calc((0.5 + var(--iri-y) * 0.6) * 100%);
+  opacity: var(--iri-sheen);
+  pointer-events: none;
+  transition: background-position 300ms var(--ease);
+}
+
+/* Hover text: letters fill with the spectrum, tracking the cursor across the
+   nearest .iri. Triggered by hovering the text itself or an .iri-hover parent. */
+.iri-text {
+  background-image: linear-gradient(100deg, var(--iri-spectrum));
+  background-size: 300% 100%;
+  background-position: calc((0.5 + var(--iri-x, 0) * 0.8) * 100%) 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: currentColor;
+  transition:
+    -webkit-text-fill-color var(--dur-settle) var(--ease),
+    background-position 300ms var(--ease);
+}
+
+.iri-text:hover,
+.iri-hover:hover .iri-text,
+.iri-hover:focus-visible .iri-text {
+  -webkit-text-fill-color: transparent;
+}

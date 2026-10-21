@@ -1,0 +1,83 @@
+/**********************************/
+/* CONTACT */
+/**********************************/
+
+.contact .chapter__head {
+  margin-bottom: var(--space-7);
+}
+
+.contact__title.chapter__title {
+  font-size: clamp(3rem, 8.5vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.contact__title em {
+  font-style: normal;
+  color: var(--text-3);
+}
+
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+}
+
+/* Underline sweeps across on hover and while showing "Copied". */
+.contact__copy {
+  position: relative;
+  padding: 0 0 6px;
+  border: 0;
+  background: none;
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 3vw, 2.125rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.contact__copy::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--iri-spectrum));
+  background-size: 300% 100%;
+  background-position: calc((0.5 + var(--iri-x) * 0.8) * 100%) 0;
+  transform: scaleX(0.18);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+
+.contact__copy:hover::after,
+.contact__copy:focus-visible::after,
+.contact__copy.is-copied::after {
+  transform: scaleX(1);
+}
+
+.contact__hint {
+  transition: color var(--dur-respond) var(--ease);
+}
+
+.contact__copy.is-copied + .contact__hint {
+  color: var(--accent);
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}

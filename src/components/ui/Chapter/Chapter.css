@@ -1,0 +1,100 @@
+/**********************************/
+/* CHAPTER */
+/**********************************/
+
+.chapter {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(88px, 13vh, 150px) calc(var(--gutter) + var(--inset)) 0;
+}
+
+.chapter__head {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: 56px;
+}
+
+.chapter__rule {
+  height: 1px;
+  background: var(--line-strong);
+  transform-origin: left;
+}
+
+/* On hover the hairline turns spectral along with the headline. */
+.chapter__rule::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--iri-spectrum));
+  background-size: 300% 100%;
+  background-position: calc((0.5 + var(--iri-x) * 0.8) * 100%) 0;
+  opacity: 0;
+  transition:
+    opacity var(--dur-settle) var(--ease),
+    background-position 300ms var(--ease);
+}
+
+.chapter__head:hover .chapter__rule::after {
+  opacity: 1;
+}
+
+.chapter__label {
+  margin: 0;
+}
+
+.chapter__title {
+  margin: 0;
+  font-size: var(--step-h2);
+  text-wrap: balance;
+}
+
+.chapter__title em {
+  font-style: normal;
+  color: var(--text-3);
+}
+
+.chapter__label .data {
+  margin-right: var(--space-2);
+}
+
+/* Shared helpers for chapter content. */
+.chapter__sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin: 0 0 20px;
+}
+
+.chapter__sub p {
+  margin: 0;
+}
+
+/**********************************/
+/* CHAPTER — OPENING SEQUENCE */
+/**********************************/
+
+/* Hairline draws, label appears, title rises, then the body follows. */
+.chapter__rule,
+.chapter__label,
+.chapter__title,
+.chapter__body {
+  transition:
+    transform var(--dur-reveal) var(--ease),
+    opacity var(--dur-reveal) var(--ease);
+}
+
+.chapter__label { transition-delay: 0.12s; }
+.chapter__title { transition-delay: 0.2s; }
+.chapter__body { transition-delay: 0.3s; }
+
+.chapter.is-pre .chapter__rule {
+  transform: scaleX(0);
+}
+
+.chapter.is-pre .chapter__label,
+.chapter.is-pre .chapter__title,
+.chapter.is-pre .chapter__body {
+  opacity: 0;
+  transform: translateY(16px);
+}

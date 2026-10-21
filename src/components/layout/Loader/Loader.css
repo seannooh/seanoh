@@ -1,0 +1,77 @@
+/**********************************/
+/* LOADER */
+/**********************************/
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: var(--ground);
+}
+
+.loader__inner {
+  width: min(360px, 100%);
+}
+
+.loader__name {
+  margin: 0;
+  color: var(--text-1);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+
+.loader__meter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.loader__count {
+  color: var(--text-2);
+}
+
+.loader__track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  overflow: hidden;
+  background: var(--rule);
+}
+
+.loader__bar {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Exit: the screen wipes up, revealing the hero underneath. */
+.loader.is-leaving {
+  animation: loader-wipe 0.7s var(--ease) forwards;
+}
+
+@keyframes loader-wipe {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader.is-leaving {
+    animation: loader-fade var(--dur-settle) linear forwards;
+  }
+}
+
+@keyframes loader-fade {
+  to { opacity: 0; }
+}
+
+/* Hold the hero's entrance until the loader starts leaving. */
+html.is-loading .hero,
+html.is-loading .hero * {
+  animation-play-state: paused !important;
+}

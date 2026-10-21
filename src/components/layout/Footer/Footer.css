@@ -1,0 +1,26 @@
+/**********************************/
+/* FOOTER */
+/**********************************/
+
+.footer {
+  padding-inline: calc(var(--gutter) + var(--inset));
+}
+
+/* Clears the docked rail on desktop, like .chapters in App.css. */
+@media (min-width: 1100px) {
+  .footer {
+    padding-left: calc(var(--rail-w) + var(--gutter) + var(--inset));
+  }
+}
+
+/* Same measure as the chapter content above. */
+.footer__inner {
+  max-width: calc(var(--container) - 2 * (var(--gutter) + var(--inset)));
+  margin: var(--space-9) auto 0;
+  padding: 20px 0 var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  border-top: 1px solid var(--line);
+}

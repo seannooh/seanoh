@@ -1,0 +1,40 @@
+/**********************************/
+/* THEME TOGGLE */
+/**********************************/
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  font: 500 var(--step-label) / 1.4 var(--font-sans);
+  cursor: pointer;
+  transition: color var(--dur-respond) var(--ease);
+}
+
+.theme-toggle:hover {
+  color: var(--text-1);
+}
+
+.theme-toggle__icon {
+  width: 14px;
+  height: 14px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  transition: transform var(--dur-reveal) var(--ease);
+}
+
+.theme-toggle__icon.is-light {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__icon {
+    transition: none;
+  }
+}

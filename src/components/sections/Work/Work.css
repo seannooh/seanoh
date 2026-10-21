@@ -1,0 +1,91 @@
+/**********************************/
+/* WORK — EXPERIENCE */
+/**********************************/
+
+.role {
+  display: grid;
+  gap: 20px;
+  padding: 28px 0;
+  margin-bottom: var(--space-8);
+  border-block: 1px solid var(--line);
+}
+
+.role__title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.role__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) 20px;
+  margin: var(--space-2) 0 0;
+}
+
+.role__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role__stats b {
+  display: block;
+  color: var(--text-1);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.role__stats span {
+  font-size: var(--step-small);
+}
+
+.role__points {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  max-width: 70ch;
+  font-size: 0.9375rem;
+}
+
+.role__points li::marker {
+  color: var(--text-3);
+}
+
+@media (min-width: 900px) {
+  .role {
+    grid-template-columns: 5fr 7fr;
+    column-gap: var(--space-8);
+  }
+
+  .role__stats {
+    grid-column: 1;
+  }
+
+  .role__points {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+
+/**********************************/
+/* WORK — BAND & LAYOUT */
+/**********************************/
+
+/* Translucent College Navy (a faint tint in light mode). */
+.work-band {
+  margin-top: clamp(88px, 13vh, 150px);
+  padding-bottom: var(--space-9);
+  background: var(--band);
+}
+
+.work__spreads {
+  margin-bottom: 80px;
+}

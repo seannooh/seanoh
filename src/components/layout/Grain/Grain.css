@@ -1,0 +1,37 @@
+/**********************************/
+/* GRAIN */
+/**********************************/
+
+/* Oversized by one tile on each side so any offset still covers the screen. */
+.grain {
+  --tile: 180px;
+
+  position: fixed;
+  inset: calc(var(--tile) * -1);
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: var(--tile) var(--tile);
+  will-change: transform;
+}
+
+/* About ten jumps a second: reads as live static, not as movement. */
+@media (prefers-reduced-motion: no-preference) {
+  .grain {
+    animation: grain-flicker 1s steps(1) infinite;
+  }
+}
+
+@keyframes grain-flicker {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-63px, 41px); }
+  20% { transform: translate(27px, -88px); }
+  30% { transform: translate(-112px, -19px); }
+  40% { transform: translate(84px, 66px); }
+  50% { transform: translate(-31px, 117px); }
+  60% { transform: translate(129px, -52px); }
+  70% { transform: translate(-96px, -131px); }
+  80% { transform: translate(49px, 23px); }
+  90% { transform: translate(-14px, -71px); }
+}
