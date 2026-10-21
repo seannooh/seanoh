@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b1524" />
-    <!-- Set the theme before first paint: saved choice, else the system setting. -->
+    <!-- Set the theme before first paint: the visitor's saved choice, else dark. -->
     <script>
       (function () {
         var theme;
@@ -12,7 +12,7 @@
           theme = localStorage.getItem("theme");
         } catch (e) {}
         if (theme !== "light" && theme !== "dark") {
-          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          theme = "dark";
         }
         document.documentElement.dataset.theme = theme;
         if (theme === "light") {
