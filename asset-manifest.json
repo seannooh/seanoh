@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/seanoh/static/css/main.38125fca.css",
-    "main.js": "/seanoh/static/js/main.53e3039a.js",
+    "main.css": "/seanoh/static/css/main.7d8925ba.css",
+    "main.js": "/seanoh/static/js/main.f2e79163.js",
     "static/js/453.ed3810f9.chunk.js": "/seanoh/static/js/453.ed3810f9.chunk.js",
-    "static/media/MoodyGlassmorphismGradientBackground.png": "/seanoh/static/media/MoodyGlassmorphismGradientBackground.51534fc882c68b1bd506.png",
-    "static/media/MoodyGlassmorphismGradientBackgroundMobile.png": "/seanoh/static/media/MoodyGlassmorphismGradientBackgroundMobile.f38e43e651a7fb86d0be.png",
     "index.html": "/seanoh/index.html",
-    "main.38125fca.css.map": "/seanoh/static/css/main.38125fca.css.map",
-    "main.53e3039a.js.map": "/seanoh/static/js/main.53e3039a.js.map",
+    "main.7d8925ba.css.map": "/seanoh/static/css/main.7d8925ba.css.map",
+    "main.f2e79163.js.map": "/seanoh/static/js/main.f2e79163.js.map",
     "453.ed3810f9.chunk.js.map": "/seanoh/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.38125fca.css",
-    "static/js/main.53e3039a.js"
+    "static/css/main.7d8925ba.css",
+    "static/js/main.f2e79163.js"
   ]
 }
