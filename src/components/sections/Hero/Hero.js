@@ -70,7 +70,7 @@ export default function Hero() {
                     </p>
                 </div>
 
-                <h1 className="hero__name serif iri iri-hover" id="hero-title" ref={nameRef}>
+                <h1 className="hero__name serif iri" id="hero-title" ref={nameRef}>
                     <span className="hero__line">
                         <span className="iri-text">Sean</span>
                     </span>
@@ -82,6 +82,7 @@ export default function Hero() {
                 <div className="hero__pane iri iri-edge" ref={paneRef}>
                     <div className="hero__frost" aria-hidden="true" />
                     <div className="hero__sheen iri-sheen" aria-hidden="true" />
+                    <div className="iri-follow" aria-hidden="true" />
                     <span className="hero__lens" aria-hidden="true" />
                     <div className="hero__content">
                         <p className="hero__statement">

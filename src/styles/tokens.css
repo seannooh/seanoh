@@ -5,44 +5,50 @@
 :root {
   color-scheme: dark;
 
-  /* Palette: flat navy ground, off-white type, one signal color. */
-  --ground: #0b1524;
-  --navy: #002244;
-  --paper: #eef0ef;
-  --wolf: #a5acaf;
-  --muted: #7f8a93;
-  --rule: rgba(165, 172, 175, 0.18);
-  --rule-strong: rgba(165, 172, 175, 0.32);
-  --rule-faint: rgba(165, 172, 175, 0.08);
-
-  /* Signal: the only accent, used for interaction and state. */
-  --signal: #69be28; /* Seahawks Action Green */
-  /* --signal: #e0703a;   Signal orange: swap this line to compare. */
-  --signal-hover: color-mix(in srgb, var(--signal) 82%, white);
+  /* Palette: black and white. The thin-film spectrum below is the only color. */
+  --ground: #0a0a0a;
+  --paper: #f2f2f2;
+  --grey: #a3a3a3;
+  --muted: #7a7a7a;
+  --rule: rgba(255, 255, 255, 0.14);
+  --rule-strong: rgba(255, 255, 255, 0.28);
+  --rule-faint: rgba(255, 255, 255, 0.06);
 
   /* Color roles (components use these) */
   --ink: var(--ground);
   --text-1: var(--paper);
-  --text-2: var(--wolf);
+  --text-2: var(--grey);
   --text-3: var(--muted);
-  --accent: var(--signal);
-  --accent-fill: var(--signal);
-  --on-accent: var(--navy);
+  --accent: #ffffff;
+  --accent-fill: #ffffff;
+  --on-accent: var(--ground);
   --line: var(--rule);
   --line-strong: var(--rule-strong);
-  --surface: rgba(238, 240, 239, 0.03);
-  --band: rgba(0, 34, 68, 0.72);
-  --frost: rgba(0, 34, 68, 0.32);
-  --frost-strong: rgba(0, 34, 68, 0.55);
+  --surface: rgba(255, 255, 255, 0.03);
+  --band: rgba(255, 255, 255, 0.025);
+  --frost: rgba(18, 18, 18, 0.32);
+  --frost-strong: rgba(18, 18, 18, 0.55);
   --grain-opacity: 0.16;
 
-  /* Iridescence on the hero glass */
-  --iri-1: #69be28;
-  --iri-2: #3cc8dc;
-  --iri-3: #8c6eff;
-  --iri-4: #2a6cff;
+  /* Background grid (components/layout/Grid) */
+  --grid-row: 96px;
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --grid-line-hot: rgba(255, 255, 255, 0.2);
+  --grid-mark: rgba(255, 255, 255, 0.16);
+  --grid-point: rgba(255, 255, 255, 0.7);
+  --grid-spot: 200px;
+  --grid-depth: 0.15;
+  --grid-strength-reading: 0.5;
+
+  /* Iridescence: a holographic thin film (mint → cyan → violet → pink). */
+  --iri-1: #7cf2c4;
+  --iri-2: #6ad1ff;
+  --iri-3: #a58bff;
+  --iri-4: #ff8ad8;
+  --on-iri: #0a0a0a;
   --iri-edge: 0.65;
   --iri-sheen: 0.24;
+  --iri-follow: 0.3;
   --iri-glint: rgba(255, 255, 255, 0.9);
 
   /* Typography: serif for the name and project titles only,
@@ -96,33 +102,37 @@
 /* LIGHT THEME */
 /**********************************/
 
-/* College Navy becomes the ink on a cool off-white. Action Green is too
-   light for text on this ground (2.3:1), so text, lines and focus use a
-   deeper Seahawks green; green fills keep Action Green. */
+/* Black ink on a neutral off-white. The spectrum is deepened so the film
+   still reads (and stays legible as text fill) on a light ground. */
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --ground: #eff1f0;
-  --rule: rgba(0, 34, 68, 0.16);
-  --rule-strong: rgba(0, 34, 68, 0.3);
-  --rule-faint: rgba(0, 34, 68, 0.07);
+  --ground: #f3f3f3;
+  --rule: rgba(0, 0, 0, 0.14);
+  --rule-strong: rgba(0, 0, 0, 0.28);
+  --rule-faint: rgba(0, 0, 0, 0.06);
 
-  --text-1: var(--navy);
-  --text-2: #3d4a57;
-  --text-3: #5d6873;
-  --accent: #2f6e12;
-  --accent-fill: var(--signal);
-  --surface: rgba(0, 34, 68, 0.035);
-  --band: rgba(0, 34, 68, 0.05);
-  --frost: rgba(239, 241, 240, 0.4);
-  --frost-strong: rgba(239, 241, 240, 0.6);
+  --text-1: #0a0a0a;
+  --text-2: #444444;
+  --text-3: #666666;
+  --accent: #0a0a0a;
+  --accent-fill: #0a0a0a;
+  --surface: rgba(0, 0, 0, 0.03);
+  --band: rgba(0, 0, 0, 0.03);
+  --frost: rgba(243, 243, 243, 0.4);
+  --frost-strong: rgba(243, 243, 243, 0.6);
   --grain-opacity: 0.32;
-  /* Deeper spectrum so the film reads on a light ground. */
-  --iri-1: #3f9a12;
-  --iri-2: #0f8fa3;
-  --iri-3: #6a4fe0;
-  --iri-4: #1f56d6;
+  --grid-line: rgba(0, 0, 0, 0.055);
+  --grid-line-hot: rgba(0, 0, 0, 0.22);
+  --grid-mark: rgba(0, 0, 0, 0.18);
+  --grid-point: rgba(0, 0, 0, 0.7);
+
+  --iri-1: #0f9e74;
+  --iri-2: #1188c4;
+  --iri-3: #6b4fe0;
+  --iri-4: #d6338f;
   --iri-edge: 1;
   --iri-sheen: 0.34;
-  --iri-glint: rgba(15, 143, 163, 0.9);
+  --iri-follow: 0.38;
+  --iri-glint: rgba(17, 136, 196, 0.9);
 }

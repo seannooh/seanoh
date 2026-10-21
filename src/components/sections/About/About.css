@@ -7,15 +7,15 @@
   gap: 40px;
 }
 
-/* Navy duotone, done with a filter alone (no blend mode) so it's drawn once
-   and costs nothing while scrolling. */
+/* Black and white, drawn once by a plain filter, with a hairline frame. */
 .about__photo {
   position: relative;
   margin: 0;
   max-width: 320px;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--navy);
+  outline: 1px solid var(--rule);
+  outline-offset: -1px;
 }
 
 .about__photo img {
@@ -23,38 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) sepia(0.55) hue-rotate(175deg) saturate(1.6) contrast(0.95) brightness(0.72);
-}
-
-/* Hairline frame at rest; on hover it becomes the spectral edge (.iri-edge)
-   and a thin-film band recolors the photo, following the cursor. The blend
-   only applies while hovering, so scrolling past costs nothing. */
-.about__photo {
-  outline: 1px solid var(--rule);
-  outline-offset: -1px;
-}
-
-.about__photo.iri-edge::after {
-  opacity: 0;
-  transition: opacity var(--dur-settle) var(--ease);
-}
-
-.about__photo:hover::after {
-  opacity: var(--iri-edge);
-}
-
-.about__sheen {
-  opacity: 0;
-  transition:
-    opacity var(--dur-settle) var(--ease),
-    background-position 300ms var(--ease);
-}
-
-/* soft-light keeps the photo's own tones; the band reads as a sheen passing
-   over the print rather than a recolor. */
-.about__photo:hover .about__sheen {
-  opacity: 0.9;
-  mix-blend-mode: soft-light;
+  filter: grayscale(1) contrast(1.05) brightness(0.92);
 }
 
 .about__quote {

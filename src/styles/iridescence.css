@@ -90,3 +90,23 @@
 .iri-hover:focus-visible .iri-text {
   -webkit-text-fill-color: transparent;
 }
+
+/* Follow: a spectral glow that sits under the cursor while it's over the
+   element. Its hues swirl with --iri-angle as the mouse travels. Content
+   should be positioned after it so text stays on top. */
+.iri-follow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(from var(--iri-angle) at var(--iri-px) var(--iri-py), var(--iri-spectrum));
+  -webkit-mask-image: radial-gradient(circle 220px at var(--iri-px) var(--iri-py), #000, transparent 70%);
+  mask-image: radial-gradient(circle 220px at var(--iri-px) var(--iri-py), #000, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--dur-settle) var(--ease);
+}
+
+.iri:hover > .iri-follow {
+  opacity: var(--iri-follow);
+}
+

@@ -34,8 +34,14 @@
     background-position 300ms var(--ease);
 }
 
-.chapter__head:hover .chapter__rule::after {
+.chapter__head:hover .chapter__rule::after,
+.chapter__head.is-lit .chapter__rule::after {
   opacity: 1;
+}
+
+/* Lit while its section is on screen (hover still lights it too). */
+.chapter__head.is-lit .chapter__title {
+  -webkit-text-fill-color: transparent;
 }
 
 .chapter__label {
@@ -85,7 +91,13 @@
 }
 
 .chapter__label { transition-delay: 0.12s; }
-.chapter__title { transition-delay: 0.2s; }
+.chapter__title {
+  transition:
+    transform var(--dur-reveal) var(--ease) 0.2s,
+    opacity var(--dur-reveal) var(--ease) 0.2s,
+    -webkit-text-fill-color var(--dur-reveal) var(--ease),
+    background-position 300ms var(--ease);
+}
 .chapter__body { transition-delay: 0.3s; }
 
 .chapter.is-pre .chapter__rule {

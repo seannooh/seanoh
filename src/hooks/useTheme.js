@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 // Light/dark theme. Dark is the default; public/index.html sets data-theme
 // before first paint (the visitor's saved choice, else dark).
 const STORAGE_KEY = "theme";
-const THEME_COLORS = { dark: "#0b1524", light: "#eff1f0" };
+const THEME_COLORS = { dark: "#0a0a0a", light: "#f3f3f3" };
 
 function currentTheme() {
     return document.documentElement.dataset.theme === "light" ? "light" : "dark";

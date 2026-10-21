@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import useIridescent from "../../../hooks/useIridescent.js";
+import React from "react";
 import Chapter from "../../ui/Chapter/Chapter.js";
 import "./About.css";
 
@@ -11,13 +10,10 @@ const facts = [
 ];
 
 export default function About() {
-    const photoRef = useRef(null);
-    useIridescent(photoRef);
-
     return (
         <Chapter id="about" title="Who I am">
             <div className="about">
-                <figure className="about__photo iri iri-edge" ref={photoRef}>
+                <figure className="about__photo">
                     <img
                         src={`${process.env.PUBLIC_URL}/images/seanoh2026_square.jpg`}
                         alt="Portrait of Sean Oh"
@@ -25,7 +21,6 @@ export default function About() {
                         height="738"
                         loading="lazy"
                     />
-                    <div className="about__sheen iri-sheen" aria-hidden="true" />
                 </figure>
 
                 <div className="about__text">

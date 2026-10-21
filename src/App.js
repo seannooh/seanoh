@@ -1,5 +1,5 @@
 import './App.css';
-import Guides from './components/layout/Guides/Guides.js';
+import Grid from './components/layout/Grid/Grid.js';
 import Grain from './components/layout/Grain/Grain.js';
 import Loader from './components/layout/Loader/Loader.js';
 import Cursor from './components/layout/Cursor/Cursor.js';
@@ -24,7 +24,7 @@ function App() {
       <Loader/>
       <a className='skip-link' href='#main'>Skip to content</a>
       <Grain/>
-      <Guides/>
+      <Grid/>
       <Rail/>
       <main id='main' tabIndex={-1}>
         <Hero/>

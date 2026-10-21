@@ -1,6 +1,7 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery.js";
 import useIridescent from "../../../hooks/useIridescent.js";
+import { registerIridescent } from "../../../lib/iridescence.js";
 import "./ProjectIndex.css";
 
 // Personal projects as an index. On wide screens the rows sit beside a
@@ -12,6 +13,12 @@ export default function ProjectIndex({ projects }) {
     const [active, setActive] = useState(projects[0].id);
     const ref = useRef(null);
     useIridescent(ref);
+    const panelRefs = useRef(new Map());
+
+    useEffect(() => {
+        const cleanups = [...panelRefs.current.values()].map((panel) => registerIridescent(panel));
+        return () => cleanups.forEach((cleanup) => cleanup());
+    }, [projects]);
     const shown = active ?? (wide ? projects[0].id : null);
 
     const select = (id) => {
@@ -43,12 +50,14 @@ export default function ProjectIndex({ projects }) {
                         </button>
 
                         <div
-                            className={`index__panel ${open ? "is-open" : ""}`}
+                            className={`index__panel iri ${open ? "is-open" : ""}`}
+                            ref={(el) => (el ? panelRefs.current.set(project.id, el) : panelRefs.current.delete(project.id))}
                             id={panelId}
                             style={wide ? { gridRow: `1 / span ${projects.length}` } : undefined}
                             inert={!open}
                         >
-                            <div>
+                            <div className="iri-follow" aria-hidden="true" />
+                            <div className="index__body">
                                 <div className="index__inner">
                                     <p className="index__summary">{project.summary}</p>
                                     <ul className="index__notes">

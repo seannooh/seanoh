@@ -1,0 +1,170 @@
+/**********************************/
+/* GRID */
+/**********************************/
+
+/* Fixed behind the content. Colors come from the --grid-* tokens; the hot
+   layer repeats the same lines in --grid-line-hot, masked to the cursor. */
+.grid {
+  --grid-strength: 0.75;
+
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  padding-inline: var(--gutter);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* The content measure: container minus its gutters, edged by hairlines. */
+.grid__frame {
+  position: relative;
+  height: 100%;
+  max-width: calc(var(--container) - 2 * var(--gutter));
+  margin: 0 auto;
+  border-inline: 1px solid var(--rule-faint);
+  opacity: var(--grid-strength);
+}
+
+/* The 12 real column lines (CSS grid lines 1–13), inside the content inset. */
+.grid__cols {
+  position: absolute;
+  inset: 0 var(--inset);
+  border-right: 1px solid var(--grid-line);
+  background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+  background-size: calc((100% + var(--space-5)) / 12) 100%;
+}
+
+/* Rows and marks; a 4-row tile taller than the viewport, so it can drift. */
+.grid__drift {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% + var(--grid-row) * 4);
+  background-image: linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 100% var(--grid-row);
+  will-change: transform;
+}
+
+.grid__marks {
+  position: absolute;
+  inset: 0 var(--inset);
+}
+
+.grid__mark {
+  position: absolute;
+  left: calc(var(--k) * (100% + var(--space-5)) / 12);
+  top: calc(var(--r) * var(--grid-row) * 4);
+}
+
+.grid__mark--end {
+  left: calc(100% - 1px);
+}
+
+.grid__mark::before,
+.grid__mark::after {
+  content: "";
+  position: absolute;
+  background: var(--grid-mark);
+}
+
+.grid__mark::before {
+  left: -4px;
+  top: 0;
+  width: 9px;
+  height: 1px;
+}
+
+.grid__mark::after {
+  left: 0;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+}
+
+
+/**********************************/
+/* GRID — CURSOR (hero, desktop) */
+/**********************************/
+
+.grid__hot {
+  --gx: -999px;
+  --gy: -999px;
+  --grid-line: var(--grid-line-hot);
+  --grid-mark: var(--grid-line-hot);
+
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(circle var(--grid-spot) at var(--gx) var(--gy), #000, transparent);
+  mask-image: radial-gradient(circle var(--grid-spot) at var(--gx) var(--gy), #000, transparent);
+  transition: opacity var(--dur-settle) var(--ease);
+}
+
+.grid__point {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  will-change: transform;
+  transition:
+    opacity var(--dur-settle) var(--ease),
+    transform 120ms var(--ease);
+}
+
+.grid__point::before,
+.grid__point::after {
+  content: "";
+  position: absolute;
+  background: var(--grid-point);
+}
+
+.grid__point::before {
+  left: -6px;
+  top: 0;
+  width: 13px;
+  height: 1px;
+}
+
+.grid__point::after {
+  left: 0;
+  top: -6px;
+  width: 1px;
+  height: 13px;
+}
+
+.grid__label {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--grid-point);
+  font-variant-numeric: tabular-nums;
+}
+
+.grid.is-hot .grid__hot,
+.grid.is-hot .grid__point {
+  opacity: 1;
+}
+
+
+/**********************************/
+/* GRID — LAYOUT */
+/**********************************/
+
+@media (min-width: 1100px) {
+  .grid {
+    padding-left: calc(var(--rail-w) + var(--gutter));
+  }
+}
+
+/* Phones: the layout is one column, so only the edges and rows are drawn. */
+@media (max-width: 599px) {
+  .grid__cols,
+  .grid__mark--mid {
+    display: none;
+  }
+}
